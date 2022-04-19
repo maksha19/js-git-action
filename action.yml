@@ -1,0 +1,14 @@
+name: Hello World
+author: AI Bot 
+description: test own action
+inputs: 
+  welcome-to:
+    description: hi 
+    required: true
+    default: AI
+outputs:
+  time:
+    description: get-in time
+runs:
+  using: node12
+  main: "dist/index.js"
