@@ -15,4 +15,6 @@ jobs:
        id: hello
        with:
         welcome-to : man 
-     - run: echo "${{ steps.hello.outputs.time }}"
+     - run: |
+        echo "${{ steps.hello.outputs.time }}"
+        echo $HELLO

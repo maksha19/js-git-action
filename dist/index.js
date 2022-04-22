@@ -8472,14 +8472,18 @@ const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
 try {
-  throw new Error("testing action failed");
+  core.debug("debug log");
+  core.warning("warning log");
+  core.error("error log");
   const name = core.getInput("welcome-to");
+  core.setSecret(name);
 
   console.log(`Hello ${name}`);
 
   const time = new Date().toTimeString();
 
   core.setOutput("time", time);
+  core.exportVariable("HELLO", name);
 } catch (e) {
   core.setFailed(e.message);
 }
