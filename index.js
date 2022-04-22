@@ -1,10 +1,15 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-const name = core.getInput("welcome-to");
+try {
+  throw new Error("testing action failed");
+  const name = core.getInput("welcome-to");
 
-console.log(`Hello ${name}`);
+  console.log(`Hello ${name}`);
 
-const time = new Date().toTimeString();
+  const time = new Date().toTimeString();
 
-core.setOutput("time", time);
+  core.setOutput("time", time);
+} catch (e) {
+  core.setFailed(e.message);
+}

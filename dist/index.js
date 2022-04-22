@@ -8471,13 +8471,18 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
-const name = core.getInput("welcome-to");
+try {
+  throw new Error("testing action failed");
+  const name = core.getInput("welcome-to");
 
-console.log(`Hello ${name}`);
+  console.log(`Hello ${name}`);
 
-const time = new Date().toTimeString();
+  const time = new Date().toTimeString();
 
-core.setOutput("time", time);
+  core.setOutput("time", time);
+} catch (e) {
+  core.setFailed(e.message);
+}
 
 })();
 
